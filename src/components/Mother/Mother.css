@@ -1,0 +1,485 @@
+/* General reset and global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #2C7C6B;
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow header to wrap */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin */
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.sign-out button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.sign-out button span {
+    margin-left: 5px;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow content to wrap */
+    margin-top: 20px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    height: 100vh;
+    overflow-y: auto; /* Allow sidebar to scroll */
+}
+
+.navigation {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation li {
+    margin-bottom: 10px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: #555;
+}
+
+.navigation a i {
+    margin-right: 10px;
+}
+
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Carousel styles */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.carousel-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Change background to transparent */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box-shadow for the modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Progress Review styles */
+.progress-tabs {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.progress-tab {
+    padding: 10px 20px;
+    background-color: #2C7C6B;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s ease;
+}
+
+.progress-tab:not(.active):hover {
+    background-color: #1e5d4f;
+}
+
+.progress-tab.active {
+    background-color: #1e5d4f;
+}
+
+.progress-content {
+    display: none;
+}
+
+.progress-content.active {
+    display: block;
+}
+
+.task-status {
+    margin-top: 10px;
+}
+
+.task {
+    margin-bottom: 10px;
+}
+
+.task-name {
+    font-weight: bold;
+}
+
+.task-bar {
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.task-progress {
+    background-color: #2C7C6B;
+    height: 100%;
+}
+
+/* Child Nutrition styles */
+.nutrition-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.nutrition-category {
+    flex: 1;
+    text-align: center;
+}
+
+.nutrition-category h3 {
+    margin-bottom: 10px;
+}
+
+.nutrition-category img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.nutrition-satisfaction {
+    margin-top: 20px;
+}
+
+.satisfaction-bar {
+    background-color: #ddd;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.satisfaction-level {
+    background-color: #2C7C6B;
+    height: 100%;
+}
+
+.satisfaction-icon {
+    position: absolute;
+    right: -15px;
+    top: -10px;
+    background-color: #2C7C6B;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* Child Development Simulator styles */
+.vaccine-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.vaccine-table th,
+.vaccine-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.vaccine-table th {
+    background-color: #f2f2f2;
+}
+
+.vaccine-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.vaccine-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Doctor's Page styles */
+.video-call {
+    margin-top: 20px;
+    position: relative;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-call iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.call-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.call-controls button {
+    background-color: #2C7C6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.call-controls button:hover {
+    background-color: #1e5d4f;
+}
+
+/* Mother's Page styles */
+.mother-details {
+    margin-top: 20px;
+}
+
+.mother-details p {
+    margin-bottom: 10px;
+}
+
+/* Book Appointment styles */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="date"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #2C7C6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1e5d4f;
+}
+
+/* Button styles */
+button {
+    background-color: #2C7C6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e5d4f;
+}
+
+/* Custom styles for Mommy Dashboard */
+.profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    margin-bottom: 10px;
+}
+
+.profile-card p {
+    margin-bottom: 10px;
+}
+
+.profile-card .info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.profile-card .info-row img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.profile-card .info-row span {
+    font-size: 0.9em;
+}
+
+.profile-card .actions {
+    margin-top: 10px;
+}
+
+.profile-card .actions button {
+    background-color: #2C7C6B;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-card .actions button:hover {
+    background-color: #1e5d4f;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .carousel-item {
+        min-width: 80%;
+    }
+}

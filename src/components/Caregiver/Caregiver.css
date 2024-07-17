@@ -1,0 +1,277 @@
+/* General reset and global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+  
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+.container {
+    display: flex;
+}
+  
+/* Header styles */
+header {
+    background: linear-gradient(135deg, #4CAF50, #2C7C6B);
+    color: white;
+    padding: 1em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  header .logo {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    background: linear-gradient(135deg, #2C7C6B, #14453D);
+    color: white;
+    padding: 1em;
+    width: 220px;
+    min-height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+  }
+  
+  .sidebar .profile {
+    display: flex;
+    align-items: center;
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar .profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #fff;
+  }
+  
+  .sidebar .profile-info {
+    flex: 1;
+  }
+  
+  .sidebar .profile-info h3 {
+    margin-bottom: 5px;
+  }
+  
+  .sidebar ul.navigation {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1em;
+  }
+  
+  .sidebar ul.navigation li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar ul.navigation li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .sidebar ul.navigation li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .sidebar ul.navigation li a i {
+    margin-right: 10px;
+  }
+  
+/* Main content styles */
+main {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+}
+  
+.tab {
+    display: none;
+}
+  
+.tab.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+  
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+/* Appointment list styles */
+.appointment-list, .call-list, .material-list, .patient-list {
+    list-style-type: none;
+    padding: 0;
+}
+  
+.appointment-list li, .call-list li, .material-list li, .patient-list li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+  
+.appointment-list li:hover, .call-list li:hover, .material-list li:hover, .patient-list li:hover {
+    transform: scale(1.02);
+}
+  
+.appointment-list h3, .call-list h3, .material-list h3, .patient-list h3 {
+    margin-bottom: 5px;
+}
+  
+.appointment-list p, .call-list p, .material-list p, .patient-list p {
+    margin-bottom: 10px;
+}
+  
+button {
+    background: linear-gradient(135deg, #4CAF50, #2C7C6B);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+button:hover {
+    background: linear-gradient(135deg, #2C7C6B, #4CAF50);
+    transform: scale(1.05);
+}
+  
+button:focus {
+    outline: none;
+}
+  
+.patient-info {
+    display: flex;
+    align-items: center;
+}
+  
+.patient-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+  
+.patient-info .info {
+    flex: 1;
+}
+  
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+  
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    animation: slideIn 0.5s ease;
+}
+  
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+  
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+/* Profile tab specific styles */
+.profile-details {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.profile-details img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid #2C7C6B;
+}
+  
+.profile-details .details {
+    flex: 1;
+}
+  
+.profile-details .details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
